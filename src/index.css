@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Core canvas */
+    --background: 210 40% 99%;
+    --foreground: 214 34% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 214 34% 12%;
+
+    /* Fixed “paper” surface for exports (always light) */
+    --paper: 0 0% 100%;
+    --paper-foreground: 214 34% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 214 34% 12%;
+
+    /* Brand */
+    --primary: 207 86% 33%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 28% 96%;
+    --secondary-foreground: 214 34% 14%;
+
+    --muted: 210 28% 96%;
+    --muted-foreground: 215 16% 42%;
+
+    --accent: 156 45% 92%;
+    --accent-foreground: 164 52% 16%;
+
+    --destructive: 0 78% 54%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 25% 90%;
+    --input: 214 25% 90%;
+    --ring: 207 86% 33%;
+
+    --radius: 0.9rem;
+
+    /* Signature finishes */
+    --gold: 42 88% 52%;
+    --glass: 0 0% 100% / 0.62;
+    --glass-border: 214 30% 86% / 0.65;
+
+    --gradient-brand: linear-gradient(135deg, hsl(207 86% 33%), hsl(160 62% 28%));
+    --gradient-surface: radial-gradient(1200px circle at var(--mx, 20%) var(--my, 10%), hsl(207 86% 55% / 0.18), transparent 55%),
+      radial-gradient(900px circle at 90% 10%, hsl(42 88% 52% / 0.14), transparent 45%),
+      radial-gradient(900px circle at 20% 90%, hsl(160 62% 35% / 0.14), transparent 45%);
+
+    --shadow-soft: 0 12px 30px -18px hsl(214 40% 10% / 0.35);
+    --shadow-elevated: 0 18px 55px -25px hsl(207 86% 20% / 0.55);
+    --shadow-glow: 0 18px 55px -35px hsl(160 62% 35% / 0.6);
+
+    --sidebar-background: 210 38% 98%;
+    --sidebar-foreground: 214 34% 16%;
+    --sidebar-primary: 207 86% 33%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 210 28% 95%;
+    --sidebar-accent-foreground: 214 34% 14%;
+    --sidebar-border: 214 25% 90%;
+    --sidebar-ring: 207 86% 45%;
+  }
+
+  .dark {
+    --background: 214 38% 9%;
+    --foreground: 210 40% 98%;
+
+    --card: 214 34% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 214 34% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 207 86% 55%;
+    --primary-foreground: 214 38% 9%;
+
+    --secondary: 214 28% 16%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 214 28% 16%;
+    --muted-foreground: 215 20% 70%;
+
+    --accent: 164 42% 18%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62% 32%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 24% 18%;
+    --input: 214 24% 18%;
+    --ring: 207 86% 55%;
+
+    --gold: 42 88% 60%;
+    --glass: 214 34% 11% / 0.55;
+    --glass-border: 210 30% 30% / 0.35;
+
+    --gradient-brand: linear-gradient(135deg, hsl(207 86% 55%), hsl(160 62% 40%));
+    --gradient-surface: radial-gradient(1100px circle at var(--mx, 20%) var(--my, 10%), hsl(207 86% 55% / 0.20), transparent 60%),
+      radial-gradient(850px circle at 90% 10%, hsl(42 88% 60% / 0.12), transparent 48%),
+      radial-gradient(850px circle at 18% 90%, hsl(160 62% 40% / 0.14), transparent 48%);
+
+    --shadow-soft: 0 14px 34px -22px hsl(0 0% 0% / 0.65);
+    --shadow-elevated: 0 20px 60px -30px hsl(207 86% 20% / 0.55);
+    --shadow-glow: 0 18px 60px -40px hsl(160 62% 40% / 0.55);
+
+    --sidebar-background: 214 38% 10%;
+    --sidebar-foreground: 210 40% 96%;
+    --sidebar-primary: 207 86% 55%;
+    --sidebar-primary-foreground: 214 38% 9%;
+    --sidebar-accent: 214 28% 16%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 214 24% 18%;
+    --sidebar-ring: 207 86% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    background-image: var(--gradient-surface);
+    background-attachment: fixed;
+  }
+
+  /* Keep Leaflet map behind UI portals (Select/Popover/Dialogs) */
+  .leaflet-container,
+  .leaflet-pane,
+  .leaflet-control-container {
+    z-index: 0;
+  }
+
+  /* Some Leaflet controls set their own z-index; neutralize them */
+  .leaflet-control {
+    z-index: 0 !important;
+  }
+}
+
+@layer utilities {
+  .bg-glass {
+    background-color: hsl(var(--glass));
+  }
+  .border-glass-border {
+    border-color: hsl(var(--glass-border));
+  }
+  .text-gold {
+    color: hsl(var(--gold));
+  }
+  .bg-gradient-brand {
+    background-image: var(--gradient-brand);
+  }
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .bg-paper {
+    background-color: hsl(var(--paper));
+  }
+  .text-paper-foreground {
+    color: hsl(var(--paper-foreground));
+  }
+  .border-paper {
+    border-color: hsl(var(--border));
+  }
+
+  .surface-grid {
+    background-image: linear-gradient(to right, hsl(var(--border) / 0.5) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.35) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: radial-gradient(ellipse at top, black 40%, transparent 70%);
+  }
+}
+
