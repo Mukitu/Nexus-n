@@ -34,13 +34,13 @@ const team: TeamMember[] = [
   },
   {
     name: "Fahad Bin Aref",
-    title: "Tester / QA",
+    title: "Designer",
     bio: "Quality assurance testing and validation across core flows.",
     img: member2Img,
   },
   {
     name: "Rayhan Kobir Shah",
-    title: "Project Manager",
+    title: "Idea",
     bio: "Project planning, coordination, and delivery management.",
     img: member3Img,
   },
