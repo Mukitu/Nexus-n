@@ -1,25 +1,3 @@
-# Nexus-N
+If you use this code, you MUST: ✅ Keep the footer credit intact ✅ Link to the developer's portfolio ❌ Do not remove attribution
 
-A premium, responsive, offline-ready dashboard for Bangladeshi university project modules (Bangla + English).
-
-## Run locally
-
-```sh
-npm i
-npm run dev
-```
-
-## Build
-
-```sh
-npm run build
-npm run preview
-```
-
-## Features
-- Dual-language toggle (Bangla + English)
-- Light/Dark theme
-- Slide-in module panels with charts
-- Local save (offline-friendly)
-- Print/PDF-friendly summaries
-
+Violation of these terms may result in DMCA takedown.
